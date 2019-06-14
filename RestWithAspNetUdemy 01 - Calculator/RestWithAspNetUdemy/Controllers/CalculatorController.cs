@@ -12,7 +12,7 @@ namespace RestWithAspNetUdemy.Controllers
     {
 
         // GET api/values/5
-        [HttpGet("{firstnumber}/{secondnumber}")]
+        [HttpGet("Sum/{firstnumber}/{secondnumber}")]
         public ActionResult<string> Sum(string firstnumber, string secondnumber)
         {
             if (IsNumeric(firstnumber) && IsNumeric(secondnumber))
@@ -24,7 +24,7 @@ namespace RestWithAspNetUdemy.Controllers
             return "Invalid input";
         }
 
-        [HttpGet("{firstnumber}/{secondnumber}")]
+        [HttpGet("Sub/{firstnumber}/{secondnumber}")]
         public ActionResult<string> Sub(string firstnumber, string secondnumber)
         {
             if (IsNumeric(firstnumber) && IsNumeric(secondnumber))
@@ -36,12 +36,24 @@ namespace RestWithAspNetUdemy.Controllers
             return "Invalid input";
         }
 
-        [HttpGet("{firstnumber}/{secondnumber}")]
-        public ActionResult<string> Multiplicacao(string firstnumber, string secondnumber)
+        [HttpGet("Mult/{firstnumber}/{secondnumber}")]
+        public ActionResult<string> Mult(string firstnumber, string secondnumber)
         {
             if (IsNumeric(firstnumber) && IsNumeric(secondnumber))
             {
                 var sum = ConvertToDecimal(firstnumber) * ConvertToDecimal(secondnumber);
+                return Ok(sum.ToString());
+            }
+
+            return "Invalid input";
+        }
+
+        [HttpGet("Div/{firstnumber}/{secondnumber}")]
+        public ActionResult<string> Div(string firstnumber, string secondnumber)
+        {
+            if (IsNumeric(firstnumber) && IsNumeric(secondnumber))
+            {
+                var sum = ConvertToDecimal(firstnumber) / ConvertToDecimal(secondnumber);
                 return Ok(sum.ToString());
             }
 
