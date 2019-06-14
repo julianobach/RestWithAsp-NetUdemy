@@ -11857,4 +11857,9 @@
         "imports": [
           "net461"
         ],
-        "a
+        "assetTargetFallback": true,
+        "warn": true
+      }
+    }
+  }
+}
